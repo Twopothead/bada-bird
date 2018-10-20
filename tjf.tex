@@ -16,7 +16,14 @@
 \usepackage[]{titlesec}
 \usepackage{comment}%参看宏包说明
 \usepackage{bbding}
-
+\usepackage{mathdots}
+\usepackage{cases}
+% \usepackage{pmat}%分块矩阵的虚线,非miktex宏包,兼容性很好
+% \iffalse \begin{pmat}[{.|}]
+%     a_{11} & a_{12} & b_{11} \cr
+%     a_{21} & a_{22} & b_{21} \cr\-
+%     c_{11} & c_{12} & d_{11} \cr
+%   \end{pmat}\fi
 % \usepackage[center]{titlesec} %其中 center 可使标题居中,还可设为 raggedleft (居左，默认), raggedright (居右)。
 % \titleformat{\chapter}{\centering\Huge\bfseries}{第\,\thechapter\,章}{1em}{}
 %\CTEXsetup[name={第,章},number={\chinese{chapter}}]{chapter}
@@ -36,7 +43,7 @@
 % \titleformat{\chapter}{\centering\Huge\bfseries}{第\,\thechapter\,章}{1em}{}
 % \titleformat{\section}[block]{\centering\LARGE\bfseries}{第 \arabic{section} 章}{1em}{}
 \titleformat{\section}[block]{\centering\LARGE\bfseries}{第 \chinese{section} 章}{1em}{}
-\titleformat{\subsection}{\Large}{\chinese{section}. }{1em}{}
+\titleformat{\subsection}{\Large}{\chinese{subsection}. }{1em}{}
 % \titleformat{\section}{\Large}{第\chinese{section}节 }{1em}{}
 % \titleformat{\subsection}[block]{\Large\bfseries}{ \Roman{subsection}}{1em}{}
 % \titleformat{\subsubsection}[block]{\large\bfseries}{\Roman{subsection}-\alph{subsubsection}}{1em}{}
@@ -167,19 +174,652 @@ D=$\left(                 %左括号
 
 
 \subsection{特殊}
+\paragraph{1.}
+\ding{192}
+
+$D_{2n}=\left|
+\begin{array}{ccc}
+  a_{11} &  & \\  %第一行元素   
+   & \ddots & \\  %第一行元素     
+   &  & a_{nn}\\  %第二行元素
+
+\end{array}\right|$
+$=\left|
+\begin{array}{ccc}
+  a_{11} &  & *\\  %第一行元素   
+   & \ddots & \\  %第一行元素     
+   &  & a_{nn}\\  %第二行元素
+\end{array}\right|$ 
+$=\left|
+\begin{array}{ccc}
+  a_{11} &  & \\  %第一行元素   
+   & \ddots & \\  %第一行元素     
+  * &  & a_{nn}\\  %第二行元素
+\end{array}\right|$ 
+
+\ding{193}
+$\left|
+\begin{array}{ccc}
+   &  & l_1 \\  %第一行元素   
+   & \iddots & \\  %第一行元素     
+   l_n &  & \\  %第二行元素
+  \end{array}\right|$ 
+$=a_{11}...a_{nn}=(-1)^{\frac{n(n-1)}{2}}l_1...l_n$
 
 
-   
+
+$\tau(n\;...\;2\;1)=n-1+...+2+1$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%邱日笔记第１页结束
+\paragraph{2.}
+$V_n{\substack{\Delta\\=}}\left|\begin{array}{cccc}
+   1＆  &1 & ... & 1\\  %第一行元素  
+  a_{1} & a_{2} &... & a_{n}\\  %第一行元素   
+...\\
+  {a_1}^{n-1} &  {a_2}^{n-1}& &{a_n}^{n-1}\\  %第二行元素
+\end{array}\right|$ 
+$=\prod_{1\leq j < i \leq n } (a_i - a_j)$
+
+$V_4=(a_4-a_1)(a_4-a_2)(a_4-a_3)(a_3-a_2)(a_2-a_1)$
+
+Note: $V_n \neq 0 \Longleftrightarrow a_1...a_n$两两不等
+
+\paragraph{3.}
+\ding{192}
+$=\left|
+\begin{array}{cc}
+  A &   \\  %第一行元素       
+   &   B\\  %第二行元素
+\end{array}\right|$ 
+$=\left|
+\begin{array}{cc}
+  A &  C \\  %第一行元素       
+  O &   B\\  %第二行元素
+\end{array}\right|$ 
+$=\left|
+\begin{array}{cc}
+  A &  O \\  %第一行元素       
+  D &   B\\  %第二行元素
+\end{array}\right|$
+=~$|A|*|B|$~
+
+\ding{193}
+A,B为m n阶阵
+
+$\left|
+\begin{array}{cc}
+   &A   \\  %第一行元素       
+  B &   \\  %第二行元素
+\end{array}\right|$ 
+$=(-1)^{mn}\left|
+\begin{array}{cc}
+  B &   \\  %第一行元素       
+   & A  \\  %第二行元素
+\end{array}\right|$ 
+$=(-1)^{mn}$
+~$|A|*|B|$~
+% $=(-1)^{mn}||$
+% $=\prod_{i=1}^{n}$
+
+\subsection{计算性质}
+\begin{equation} 
+\begin{cases} {}
+  D \Longrightarrow　$$
+  \left(\begin{array}{ccc}
+
+    \cdots   & \cdots &\cdots \\
+                 & \ddots & \vdots \\
+  % \multicolumn{2}{c}{\raisebox{1.3ex}[0pt]{\Huge0}}
+                  &        &\vdots
+  \end{array}\right)
+  $$ \text{或}$$
+  \left(\begin{array}{ccc}
+
+    \ddots    &  &\\
+    \vdots           & \ddots &  \\
+  % \multicolumn{2}{c}{\raisebox{1.3ex}[0pt]{\Huge0}}
+  \cdots            &    \cdots     &\cdots
+  \end{array}\right)
+  $$ \\
+\text{降阶}
+ \end{cases}
+\end{equation}
+
+% $$
+%   \left(\begin{array}{cccc}
+%   a_{11} & a_{12} & \cdots & a_{1n} \\
+%          &a_{22}  & \cdots &a_{2n}  \\
+%          &        & \ddots & \vdots \\
+%   \multicolumn{2}{c}{\raisebox{1.3ex}[0pt]{\Huge0}}
+%                   &        &a_{nn}
+%   \end{array}\right)
+%   $$ 
+
+\paragraph{一．}
+$D \Longrightarrow$　
+$\left(\begin{array}{ccc}
+  \cdots   & \cdots &\cdots \\
+               & \ddots & \vdots \\
+% \multicolumn{2}{c}{\raisebox{1.3ex}[0pt]{\Huge0}}
+                &        &\vdots
+\end{array}\right)$
+ 或
+ $
+\left(\begin{array}{ccc}
+  \ddots    &  &\\
+  \vdots           & \ddots &  \\
+% \multicolumn{2}{c}{\raisebox{1.3ex}[0pt]{\Huge0}}
+\cdots            &    \cdots     &\cdots
+\end{array}\right)$
+
+\begin{questions}
+\question \text{\bf{[例2]}}
+$D=\left|
+\begin{array}{ccc}
+  a+b & b+c & c+a \\  %第一行元素   
+  a_1+b_1& b_1+c_1 & c_1+a_1\\  %第一行元素     
+  a２+b_2 & b_2+c_2  & c_2+a_2\\  %第二行元素
+\end{array}\right|$.
+$D=?$
+% \end{questions}
+
+\begin{solution}
+  $D=\left|
+\begin{array}{ccc}
+  a+b & b+c & c+a \\  %第一行元素   
+  a_1+b_1& b_1+c_1 & c_1+a_1\\  %第一行元素     
+  a２+b_2 & b_2+c_2  & c_2+a_2\\  %第二行元素
+\end{array}\right|$
+$=\left|
+\begin{array}{ccc}
+  a & b+c & c+a \\  %第一行元素   
+  a_1& b_1+c_1 & c_1+a_1\\  %第一行元素     
+  a２ & b_2+c_2  & c_2+a_2\\  %第二行元素
+\end{array}\right|$
+$+\left|
+\begin{array}{ccc}
+  b & b+c & c+a \\  %第一行元素   
+  b_1& b_1+c_1 & c_1+a_1\\  %第一行元素     
+  b_2 & b_2+c_2  & c_2+a_2\\  %第二行元素
+\end{array}\right|$
+
+$=\left|
+\begin{array}{ccc}
+  a & b+c & c \\  %第一行元素   
+  a_1& b_1+c_1 & c_1\\  %第一行元素     
+  a２ & b_2+c_2  & c_2\\  %第二行元素
+\end{array}\right|$
+$+\left|
+\begin{array}{ccc}
+  b & c & c+a \\  %第一行元素   
+  b_1& c_1 & c_1+a_1\\  %第一行元素     
+  b_2 & c_2  & c_2+a_2\\  %第二行元素
+\end{array}\right|$
+
+$=\left|
+\begin{array}{ccc}
+  a & b & c \\  %第一行元素   
+  a_1& b_1 & c_1\\  %第一行元素     
+  a２ & b_2  & c_2\\  %第二行元素
+\end{array}\right|$
+$+\left|
+\begin{array}{ccc}
+  b & c & a \\  %第一行元素   
+  b_1& c_1 & a_1\\  %第一行元素     
+  b_2 & c_2  & a_2\\  %第二行元素
+\end{array}\right|$
+
+$=2\left|
+\begin{array}{ccc}
+  a & b & c \\  %第一行元素   
+  a_1& b_1 & c_1\\  %第一行元素     
+  a２ & b_2  & c_2\\  %第二行元素
+\end{array}\right|$
+\end{solution}
+
+
+
+
+
+%%%%%%%例3
+% \begin{questions}
+\question \text{\bf{[例3]}}~$A=(\alpha_1,\alpha_2,\gamma_1),B=(\alpha_1,\alpha_2,\gamma_2)
+$~.~$|A|=3,|B|=2,求|A+2B|$~．
+
+\begin{solution}
+  ~$A+2B=(\alpha_1,\alpha_2,\gamma_1)+(\alpha_1,\alpha_2,\gamma_2)=
+  (3\alpha_1,3\alpha_2,\gamma_1+2\gamma_2)$~．
+
+  ~$|A+2B|=|3\alpha_1,3\alpha_2,\gamma_1+2\gamma_2|=9|\alpha_1,\alpha_2,\gamma_1+2\gamma_2|\\
+  =9(|\alpha_1,\alpha_2,\gamma_1+ 2|\alpha_1,\alpha_2,\gamma_2|)\\
+  =9(|A|+2|B|)=63
+  $~
+\end{solution}
+
+\question \text{\bf{[例4]}} $D=\left|
+\begin{array}{ccc}
+  3&1&1\\
+  1&3&1\\
+  1&1&3\\
+\end{array}\right|$.
+$D=?$
+\end{questions}
+\begin{solution}
+  $D=5\left|
+\begin{array}{ccc}
+  1&1&1\\
+  \underline{1}&3&1\\
+  \underline{1}&1&3\\
+\end{array}\right|$
+$=5\left|
+\begin{array}{ccc}
+  1&1&1\\
+  0&2&0\\
+  0&0&2\\
+\end{array}\right|=20$
+\end{solution}
+
+\paragraph{二．}降阶1
+\begin{questions}
+\question
+$D=\left|
+\begin{array}{ccc}
+  1&-1&2\\
+  2&0&11\\
+  3&1&4\\
+\end{array}\right|,\text{求}D$
+\end{questions}
+\begin{solution}
+
+ 法一： $D=\left|
+\begin{array}{ccc}
+  1&-1&2\\
+  0&2&7\\
+  0&\boxed{4}&-2\\
+\end{array}\right|,$
+$=\left|
+\begin{array}{ccc}
+  1&-1&2\\
+  0&2&7\\
+  0&0&-16=-32\\
+\end{array}\right|,$
+
+法二： $D=1*(-11)+(-1)*25+2*2=-11-25-4=-32$
+
+\includegraphics[scale=0.5]{assets/1-2.png}
+
+% $D=\left|
+% \begin{array}{cccccc}
+%   \sout{2}&0&11&2&0&11\\
+%  \sout{3}&1&4&3&1&4\\
+% \end{array}\right|,$
+
+$\begin{cases}{}
+  a_{11}=1  \qquad M_{11}-11  \qquad A_{11}=-11\\
+  a_{12}=1  \qquad M_{12}-25  \qquad A_{12}=-25\\
+  a_{13}=2  \qquad M_{11}-2  \qquad A_{13}=2
+ \end{cases}
+ \begin{cases}{}
+  a_{21}=2  \qquad M_{21}=-6  \qquad A_{21}=6\\
+  a_{22}=0  \qquad M_{22}=-2  \qquad A_{22}=-2\\
+  a_{23}=11  \qquad M_{21}=4  \qquad A_{23}=4
+ \end{cases}\\
+ \begin{cases}{}
+  a_{31}=3  \qquad M_{31}=-11  \qquad A_{31}=-11\\
+  a_{32}=1  \qquad M_{32}=-7  \qquad A_{32}=-7\\
+  a_{33}=4  \qquad M_{31}=2  \qquad A_{33}=2
+ \end{cases}
+ \begin{cases}{}
+  -11-25+4=-32\\
+  12+0-44=-32\\
+ -33-7+8=-32
+ \end{cases}
+ \begin{cases}{}
+ 6+20+8=0\\
+ -11+7+4=0
+\end{cases}$
+\end{solution}
+
+\paragraph{三．}降阶2
+
+1.$\begin{cases}{}
+a_{i1}A_{i1}+a_{i2}A_{i2}+...+a_{in}A_{in}=D\\
+a_{1j}A_{1j}+a_{2j}A_{2j}+...+a_{nj}A_{nj}=D
+ \end{cases}\\
+ (i,j=1,2,...,n)$
+
+2.$a_{i1}A_{i1}+a_{i2}A_{i2}+...+a_{in}A_{in}=0\\
+ (i \neq j)$
+
+Notes:
+\ding{192}行列式中出现$A_{ij},A^{*}$
+
+$A^{*}=\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+   A_{11}& .. & A_{1n} \\  %第一行元素      
+  .. & .. & ..\\  %第二行元素
+  A_{n1} & .. & A_{nn}\\ 
+\end{array}
+\right)$                 %右括号
+
+$ \begin{cases}{}
+  |A^{*}|=|A|^{n-1}\\
+  a_{i1}A_{i1}+...+a_{in}A_{in}=D
+ \end{cases}$
+
+
+\begin{questions}
+  \question
+$D=\left(
+\begin{array}{ccc}
+  a&a&a\\
+  &*&
+\end{array}\right)_{3*3}.(a>0)\\
+A_{ij}=a_{ij},a=\mtk{}$
+
+\begin{solution}
+  $A^{*}=\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+   A_{11}& A_{21} & A_{31} \\  %第一行元素      
+   A_{12}& A_{22} & A_{32} \\  %第一行元素  
+   A_{13}& A_{23} & A_{33} \\  %第一行元素  
+\end{array}
+\right)$
+$=A^{T}\\
+|A^{*}|=|A^{T}| \Longrightarrow |A|^2 =|A|\\
+|A|=0\text{或}|A|=1\\
+|A|=a_{11}A_{11}+a_{12}A_{12}+a_{13}A_{13}=3a^2>0 \Longrightarrow a=\frac{1}{\sqrt{3}}$ 
+\end{solution}
+
+\question
+$A^{*}=\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  2   & a_{12} & a_{13} \\  %第一行元素      
+   & * &  \\  %第一行元素  
+   & * &  \\  %第一行元素  
+\end{array}
+\right)_{3*3}$
+$,A_{ij}+3a_{ij}=0,|A|=?$
+
+\begin{solution}
+  $,A_{*}=-3a^{T}\\
+  |A_{*}|=|-3a^{T}| \Longrightarrow |A|^2 = -27|A| \Longleftarrow |A|=0\text{或}A=-27\\
+  |A|=-3(a_{11}^2+a_{12}^2+a_{13}^<0)\\
+  \therefore |A|=-27
+  $
+\end{solution}
+
+\ding{193}稀疏行列式用降阶计算
+
+\question
+$A^{*}=\left|                 %左括号
+\begin{array}{cccc}   %该矩阵一共3列，每一列都居中放置
+a &-1&0&0\\
+2a & a &-1&0\\
+0&2a&a&-1\\
+0&0&2a&a
+\end{array}
+\right|$                 %右括号
+
+\end{questions}
+\begin{solution}
+  $D=aA_{11}+(-1)A_{12}\\
+  =aM_{11}+M_{12}\\$
+$=a\left|                 %左括号
+  \begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  a &-1&0\\
+  2a&a&-1\\
+0&2a&a\\
+  \end{array}
+  \right|$                 %右括号
+$+\left|                 %左括号
+  \begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  \boxed{2a} &-1&0\\
+  0&a&-1\\
+0&2a&a\\
+  \end{array}
+  \right|$                 %右括号
+$=a[aA{11}+(-1)A_{11}+2a(a^2+2a)]$\\
+$= a^2M_{11}+aM_{12}+2a^{3}+4a^2$
+
+\end{solution} 
+
+\subsection{应用}
+(*)式:$\begin{cases}{}
+  a_{11}x_1+...+a_{1n}x_{n}=0\\
+  a_{n1}A_{1j}+...+a_{nn}x_{n}=0
+   \end{cases}\\$
+
+   (**)式:$\begin{cases}{}
+    a_{11}x_1+...+a_{1n}x_{n}=b1\\
+    a_{n1}A_{1j}+...+a_{nn}x_{n}=bn
+     \end{cases}\\$
+
+
+Th1:对(*):\\
+\ding{192}~$D \neq 0\Longleftrightarrow r(A)=n \Longleftrightarrow
+(*)$~只有零解\\
+\ding{193}~$D ＝ 0\Longleftrightarrow r(A)<n \Longleftrightarrow
+(*)$~除零解外有非零解(有无数解)\\
+Th2:对(**):\\
+\ding{192}~$D \neq 0\Longleftrightarrow r(A)=r(\widetilde{A})=n \Longleftrightarrow
+(**)$~有唯一解且$x_i=\frac{D_i}{D}(1\leq i \leq n );$\\
+\ding{193}~$D=0\Longleftrightarrow r(A)<n $
+
+$\begin{cases}{}
+  r(A)=r(\widetilde{A})<n \Longleftrightarrow \text{(**)有无数解}\\
+  r(A)<r(\widetilde{A})\Longleftrightarrow　\text{(**)无解}
+   \end{cases}\\$
+
+
+
+\section{矩阵(表格)}
+\subsection{defs}
+\paragraph{1.}
+$A=\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  a_{11} & .. & a_{1n} \\  %第一行元素      
+  .. & .. & ..\\  %第二行元素
+  a_{m1} & .. & a_{mn}\\ 
+\end{array}
+\right)$                 %右括号
+$\substack{\Delta \\=}{(a_{ij})}_{m*n}$\\
+
+\ding{192}$A_{m*n}\;if\;m=n\quad $A为n阶方阵\\
+\ding{193}$A=(a_{ij})_{m*n}\qquad if\;\forall a_{ij}=0,A=0$\\
+\ding{194}$A=\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  a_{1} &  &  \\  %第一行元素      
+  & \ddots & \\  %第二行元素
+& & a_{n}\\ 
+\end{array}
+\right)$                 %右括号
+对角矩阵\\
+\ding{195}$A=\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  k &  &  \\  %第一行元素      
+  & \ddots & \\  %第二行元素
+& & k\\ 
+\end{array}
+\right)$                 %右括号
+数量矩阵\\
+\ding{196}$A=\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  a_{11} &  & a_{1n} \\  %第一行元素      
+  & \cdots & \\  %第二行元素
+a_{n1}& & a_{nn}\\ 
+\end{array}
+\right)$                 %右括号
+$if\;\forall a_{ij}=a_{ji}$\qquad A称为对称矩阵\\
+\ding{197}$A=\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  a_{11} &  & a_{1n} \\  %第一行元素      
+  & \cdots & \\  %第二行元素
+a_{n1}& & a_{nn}\\ 
+\end{array}
+\right)$                 %右括号
+$if\;\forall A^{T}=E$\qquad A称为正交矩阵\\
+
+\paragraph{2.}同型\\
+$A_{m*n},B_{m*n},$称 $\widetilde{\text{同型}}$\\
+$if\; \forall a_{ij}=b_{ij},$称$A=B$
+
+\paragraph{3.}三则\\
+\ding{192}$A \pm B$;\\
+\ding{193}$kA$\\
+\ding{194}$A_{m \times n} =
+\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  a_{11} &  & a_{1n} \\  %第一行元素      
+  & \cdots & \\  %第二行元素
+a_{n1}& & a_{mn}\\ 
+\end{array}
+\right)$,                 %右括号
+$B_{n \times s} =
+\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  b_{11} &  & b_{1s} \\  %第一行元素      
+  & \cdots & \\  %第二行元素
+b_{n1}& & b_{ns}\\ 
+\end{array}
+\right)$   \\              %右括号
+
+$A_{m \times \underline{n}}B_{\underline{n} \times s} $,合法看内标\\
+型看外标．\\
+$AB= C_{m \times s} =
+\left(                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  c_{11} &  & c_{1s} \\  %第一行元素      
+  & \cdots & \\  %第二行元素
+c_{m1}& & c_{ms}\\ 
+\end{array}
+\right)$   \\              %右括号
+
+Notes:
+
+\ding{192}
+$\begin{cases}
+  A \neq 0,B \neq 0, \nRightarrow AB \neq 0 \\
+  A \neq 0, \nRightarrow  A^{*} \neq 0 \\
+  AB \neq BA 
+\end{cases} \\
+$
+
+\ding{193}\\
+$f(x)= a_nx_n+...+a_1x+a_0, \qquad A_{m \times n }\\
+f(A)\substack{\Delta \\=} a_nA_n+...+A_1x+A_0E
+$\\因式分解
+
+$\begin{cases}{}
+  a_{11}x_1+...+a_{1n}x_{n}=0\\
+  a_{m1}A_{1j}+...+a_{mn}x_{n}=0
+   \end{cases}(*)\\$
+
+$\begin{cases}{}
+  a_{11}x_1+...+a_{1n}x_{n}=b_1\\
+  a_{m1}A_{1j}+...+a_{mn}x_{n}=b_n
+   \end{cases}(**)\\$
+
    $\left(                 %左括号
    \begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
-     a11 & a12 & a13\\  %第一行元素      
-     a21 & a22 & a23\\  %第二行元素
+     a_{11} & ... & a_{1n}\\  %第一行元素      
+     a_{m1} & ... & a_{mn}\\ 
    \end{array}
- \right)$      
-   \begin{parts}
-   \part 当~$a=1$~时，求曲线~$f(x)$~在~$x=1$~处的切线方程；
-   \part 设函数~$h(x)=f(x)-g(x)$~,求函数~$h(x)$~的单调区间.
-   \end{parts}
+ \right)$                 %右括号
+
+ $X=\left(                 %左括号
+ \begin{array}{c}   %该矩阵一共3列，每一列都居中放置
+   x_{1} \\  %第一行元素 
+   \vdots\\     
+   x_{n} \\ 
+ \end{array}
+\right)$,                 %右括号
+$b=\left(                 %左括号
+\begin{array}{c}   %该矩阵一共3列，每一列都居中放置
+  b_{1} \\  %第一行元素 
+  \vdots\\     
+  b_{n} \\ 
+\end{array}
+\right)$                 %右括号
+
+$\begin{cases}{}
+  AX=0,\qquad (*) \\
+  AX=b,\qquad (**)
+   \end{cases}\\$
+
+   \paragraph{4.}伴随矩阵\\
+   $A=\left(                 %左括号
+   \begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+     a_{11} & ... & a_{1n}\\  %第一行元素      
+     a_{m1} & ... & a_{mn}\\ 
+   \end{array}
+ \right)$                 %右括号
+ $ \Longrightarrow  
+|A|=\left|                 %左括号
+\begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+  a_{11} & ... & a_{1n}\\  %第一行元素      
+  a_{m1} & ... & a_{mn}\\ 
+\end{array}
+\right|$     
+$ \forall a_{ij} \Longrightarrow M_{ij} \Longrightarrow A_{ij} \\
+\Longrightarrow $
+$A^*=\left(                 %左括号
+\begin{array}{cccc}   %该矩阵一共3列，每一列都居中放置
+  A_{11} & A_{21} & \cdots & A_{n1}\\  %第一行元素   
+  A_{12} & A_{22} & \cdots & A_{n2}\\  %第一行元素
+  \vdots & \vdots  & \cdots & \vdots \\  %第一行元素          
+  A_{1n} & A_{2n} & \cdots & A_{nn}\\ 
+\end{array}
+\right)$ 称为A的伴随矩阵\\
+
+Notes:\\
+\ding{192}
+$\begin{cases}
+  |A^T|=|A| \\
+  |kA|=k^n|A|\\
+  |AB|=|A||B|\qquad(Laplace\;rule)\\
+  |A^*=|A|^{n-1}\\
+\end{cases}$
+\ding{193}
+$A|A|^*=A^*A=|A|E$
+
+Q:矩阵的研究对象？\\
+ax=b\qquad $\begin{cases}
+  a \neq 0  \qquad \frac{1}{a} * a =1 \Longrightarrow x = \frac{b}{a} \\
+  a = 0 \qquad (b =0 \text{无数解} \; or \; b \neq 0 \text{无解})
+\end{cases}$
+ 
+%  $
+
+% $D_{2n}=\left|
+% \begin{array}{cccccccccc}
+% a& & & & & & & & &b\\
+%  &a& & & & & & &b& \\
+%  & & &\ddots& & &\iddots& & & \\
+%  & & & &a&b& & & & \\
+%  & & & &b&a& & & & \\
+%  & & &\iddots& & &\ddots& & & \\
+%  &b& & & & & & &a& \\
+% b& & & & & & & & &a\\
+% \end{array}\right|$
+   
+%    $\left(                 %左括号
+%    \begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+%      a11 & a12 & a13\\  %第一行元素      
+%      a21 & a22 & a23\\  %第二行元素
+%    \end{array}
+%  \right)$      
+%  $\left(                 %左括号
+%  \begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+%    a11 & a12 & a13\\  %第一行元素      
+%    a21 & a22 & a23\\  %第二行元素
+%  \end{array}
+% \right)$      
+  %  \begin{parts}
+  %  \part 当~$a=1$~时，求曲线~$f(x)$~在~$x=1$~处的切线方程；
+  %  \part 设函数~$h(x)=f(x)-g(x)$~,求函数~$h(x)$~的单调区间.
+  %  \end{parts}
 
   
    
